@@ -1,0 +1,20 @@
+{
+  "version": "7",
+  "dialect": "postgresql",
+  "entries": [
+    {
+      "idx": 0,
+      "version": "7",
+      "when": 1791182845936,
+      "tag": "0000_slimy_celestials",
+      "breakpoints": true
+    },
+    {
+      "idx": 1,
+      "version": "7",
+      "when": 1791182845937,
+      "tag": "0001_anti_double_booking",
+      "breakpoints": false
+    }
+  ]
+}
