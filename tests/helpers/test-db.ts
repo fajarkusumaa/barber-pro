@@ -39,5 +39,12 @@ export async function createTestDatabase() {
     console.warn('PGlite extension note:', (err as Error).message);
   }
 
+  // Phase 3: admin_users
+  const migration2 = fs.readFileSync(
+    path.resolve(__dirname, '../../src/db/migrations/0002_admin_users.sql'),
+    'utf-8'
+  );
+  await pglite.exec(migration2);
+
   return { pglite, db };
 }

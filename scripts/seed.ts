@@ -4,6 +4,7 @@ dotenv.config();
 
 import { db, branches, capsters, capsterSchedules, timeOffs, customers, bookings } from '../src/db';
 import { sql } from 'drizzle-orm';
+import { upsertAdmin } from '../src/server/auth/admin-users';
 
 export async function runSeed(database = db) {
   console.log('🌱 Starting database seed...');
@@ -66,6 +67,12 @@ export async function runSeed(database = db) {
 
   await database.insert(capsterSchedules).values(schedulesToInsert);
   console.log(`✅ ${schedulesToInsert.length} Schedule shifts created`);
+
+  // 4. Admin account (dashboard & /device)
+  const adminEmail = process.env.ADMIN_EMAIL || 'admin@barberbot.local';
+  const adminPassword = process.env.ADMIN_PASSWORD || 'barberbot123';
+  await upsertAdmin({ email: adminEmail, name: 'Admin', password: adminPassword }, database);
+  console.log(`✅ Admin account ready: ${adminEmail}${process.env.ADMIN_PASSWORD ? '' : ' (default dev password: barberbot123)'}`);
 
   console.log('🎉 Seeding completed successfully!');
 }

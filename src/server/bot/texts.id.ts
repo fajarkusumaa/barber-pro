@@ -83,4 +83,9 @@ export const botTexts = {
   // 10. Free text & Fallback
   freeTextFallback: 'Silakan pilih lewat tombol yang tersedia ya 🙏',
   invalidAction: 'Tombol sudah kedaluwarsa atau tidak sesuai. Silakan lanjutkan dari langkah ini:',
+
+  // 11. Proactive notifications (sent from dashboard)
+  cancelledByAdmin: (ticketCode: string) =>
+    `Maaf, booking <code>${ticketCode}</code> dibatalkan oleh barber. 🙏\n` +
+    `Silakan booking ulang lewat menu atau hubungi admin.`,
 };

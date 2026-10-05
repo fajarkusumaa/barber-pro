@@ -15,6 +15,13 @@
       "when": 1791182845937,
       "tag": "0001_anti_double_booking",
       "breakpoints": false
+    },
+    {
+      "idx": 2,
+      "version": "7",
+      "when": 1791189759311,
+      "tag": "0002_admin_users",
+      "breakpoints": true
     }
   ]
 }

@@ -147,6 +147,16 @@ export const chatMessages = pgTable(
   ]
 );
 
+// 9. Admin Users (dashboard & /device login)
+export const adminUsers = pgTable('admin_users', {
+  id: bigint('id', { mode: 'number' }).primaryKey().generatedAlwaysAsIdentity(),
+  email: text('email').notNull().unique(),
+  name: text('name').notNull(),
+  passwordHash: text('password_hash').notNull(),
+  createdAt: timestamp('created_at', { withTimezone: true }).notNull().defaultNow(),
+  updatedAt: timestamp('updated_at', { withTimezone: true }).notNull().defaultNow(),
+});
+
 // Relations
 export const branchesRelations = relations(branches, ({ many }) => ({
   capsters: many(capsters),
@@ -225,3 +235,6 @@ export type NewChatSession = typeof chatSessions.$inferInsert;
 
 export type ChatMessage = typeof chatMessages.$inferSelect;
 export type NewChatMessage = typeof chatMessages.$inferInsert;
+
+export type AdminUser = typeof adminUsers.$inferSelect;
+export type NewAdminUser = typeof adminUsers.$inferInsert;

@@ -435,9 +435,9 @@ Estimasi untuk satu developer. Angka kasar, sesuaikan.
 **Selesai jika:** dari Telegram di HP, satu booking bisa diselesaikan dari `/start` sampai nomor tiket.
 
 ### Phase 3 — Dashboard & `/device` (±2-3 hari)
-- [ ] Halaman admin sesuai Bagian 7 (kapster dan jadwal, booking dan aksi, booking manual, pelanggan).
-- [ ] Halaman `/device` (Bagian 6.5).
-- [ ] Notifikasi pembatalan oleh admin ke pelanggan.
+- [x] Halaman admin sesuai Bagian 7 (kapster dan jadwal, booking dan aksi, booking manual, pelanggan).
+- [x] Halaman `/device` (Bagian 6.5).
+- [x] Notifikasi pembatalan oleh admin ke pelanggan.
 
 **Selesai jika:** booking dari Telegram muncul di dashboard, dan walk-in dari `/device` menutup slot di bot.
 
@@ -453,7 +453,7 @@ Estimasi untuk satu developer. Angka kasar, sesuaikan.
 - [ ] Test dengan fixture payload Meta.
 - [ ] Untuk pilot ke pelanggan barber: SIM baru khusus bot yang didaftarkan ke WABA.
 
-**Catatan biaya WhatsApp (verifikasi di halaman harga resmi Meta sebelum pilot):** per Oktober 2026, 1.000 service message pertama per nomor bisnis per bulan gratis. Balasan bebas hanya boleh dikirim dalam jendela 24 jam setelah pelanggan chat. Template message (di luar jendela) berbayar. Siapa yang menanggung billing setelah deal: WABA milik barber (disarankan) atau milik kamu lalu ditagih ulang.
+**Catatan biaya WhatsApp (verifikasi di halaman harga resmi Meta sebelum pilot):** per Oktober 2026, 1.000 service message pertama per nomor bisnis per bulan gratis. Balasan bebas hanya boleh dikirim dalam jen dela 24 jam setelah pelanggan chat. Template message (di luar jendela) berbayar. Siapa yang menanggung billing setelah deal: WABA milik barber (disarankan) atau milik kamu lalu ditagih ulang.
 
 ---
 

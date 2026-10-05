@@ -20,7 +20,12 @@ const envSchema = z.object({
     .optional()
     .default(process.env.DATABASE_URL_UNPOOLED || process.env.DATABASE_URL_DIRECT || ''),
   AUTH_SECRET: z.string().min(1).default('development-auth-secret-min-32-chars-long-123456789'),
-  APP_URL: z.string().url().default('http://localhost:3000'),
+  APP_URL: z
+    .string()
+    .transform((url) => (url.startsWith('http://') || url.startsWith('https://') ? url : `https://${url}`))
+    .pipe(z.string().url())
+    .default('http://localhost:3000'),
+
   TELEGRAM_BOT_TOKEN: z.string().optional(),
   TELEGRAM_WEBHOOK_SECRET: z.string().optional(),
   WA_GRAPH_VERSION: z.string().optional(),
