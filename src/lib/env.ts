@@ -1,12 +1,24 @@
 import { z } from 'zod';
 import dotenv from 'dotenv';
 
+dotenv.config({ path: '.env.local' });
 dotenv.config();
 
 const envSchema = z.object({
   NODE_ENV: z.enum(['development', 'test', 'production']).default('development'),
-  DATABASE_URL: z.string().url().default('postgresql://postgres:postgres@localhost:5432/barberbot'),
-  DATABASE_URL_DIRECT: z.string().url().optional(),
+  DATABASE_URL: z
+    .string()
+    .url()
+    .default(
+      process.env.POSTGRES_URL ||
+        process.env.DATABASE_URL ||
+        'postgresql://postgres:postgres@localhost:5432/barberbot'
+    ),
+  DATABASE_URL_DIRECT: z
+    .string()
+    .url()
+    .optional()
+    .default(process.env.DATABASE_URL_UNPOOLED || process.env.DATABASE_URL_DIRECT || ''),
   AUTH_SECRET: z.string().min(1).default('development-auth-secret-min-32-chars-long-123456789'),
   APP_URL: z.string().url().default('http://localhost:3000'),
   TELEGRAM_BOT_TOKEN: z.string().optional(),

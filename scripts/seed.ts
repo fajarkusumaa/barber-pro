@@ -1,3 +1,7 @@
+import dotenv from 'dotenv';
+dotenv.config({ path: '.env.local' });
+dotenv.config();
+
 import { db, branches, capsters, capsterSchedules, timeOffs, customers, bookings } from '../src/db';
 import { sql } from 'drizzle-orm';
 
